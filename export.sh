@@ -35,6 +35,7 @@ done
 rsync -av --delete \
   "${INCLUDES[@]}" \
   --exclude='*' \
+  --dry-run \
   "$SRC/" "$DEST/"
 
 rsync -av "$HOME/.zshrc" ./
