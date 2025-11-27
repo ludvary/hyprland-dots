@@ -26,24 +26,21 @@ INCLUDE=(
 
 mkdir -p "$DEST"
 
-# Build include flags for rsync
 INCLUDES=()
 for item in "${INCLUDE[@]}"; do
   INCLUDES+=( "--include=$item" )
 done
 
-# Rsync: copy only included folders recursively
 rsync -av --delete \
     --include="*/" \
     "${INCLUDES[@]}" \
     --exclude="*" \
     "$SRC/" "$DEST/"
 
-# Copy standalone files
 rsync -av "$HOME/.zshrc" "$DOTS/"
 
-# --- Auto commit & push -----------------------------------
 
+# i hate writing explanatory comments, why are you reading this anyways??
 cd "$DOTS"
 
 git add -A
