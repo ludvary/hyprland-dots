@@ -37,7 +37,6 @@ rsync -av --delete \
     --include="*/" \
     "${INCLUDES[@]}" \
     --exclude="*" \
-    --dry-run \
     "$SRC/" "$DEST/"
 
 # Copy standalone files
