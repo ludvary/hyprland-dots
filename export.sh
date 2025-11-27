@@ -6,39 +6,42 @@ DOTS="$HOME/dots"
 SRC="$HOME/.config"
 DEST="$DOTS/.config"
 
+# Folders to sync (full recursive)
 INCLUDE=(
-    "btop/"
-    "doom/"
-    "hypr/"
-    "kitty/"
-    "lvim/"
-    "ranger/"
-    "rofi/"
-    "Thunar/"
-    "swappy/"
-    "swaync/"
-    "waybar/"
-    "wlogout/"
-    "zathura/"
-    "zed/"
+    "btop/***"
+    "doom/***"
+    "hypr/***"
+    "kitty/***"
+    "lvim/***"
+    "ranger/***"
+    "rofi/***"
+    "Thunar/***"
+    "swappy/***"
+    "swaync/***"
+    "waybar/***"
+    "wlogout/***"
+    "zathura/***"
+    "zed/***"
 )
 
 mkdir -p "$DEST"
 
-# Build includes
+# Build include flags for rsync
 INCLUDES=()
 for item in "${INCLUDE[@]}"; do
   INCLUDES+=( "--include=$item" )
 done
 
-# Rsync step
+# Rsync: copy only included folders recursively
 rsync -av --delete \
-  "${INCLUDES[@]}" \
-  --exclude='*' \
-  --dry-run \
-  "$SRC/" "$DEST/"
+    --include="*/" \
+    "${INCLUDES[@]}" \
+    --exclude="*" \
+    --dry-run \
+    "$SRC/" "$DEST/"
 
-rsync -av "$HOME/.zshrc" ./
+# Copy standalone files
+rsync -av "$HOME/.zshrc" "$DOTS/"
 
 # --- Auto commit & push -----------------------------------
 
