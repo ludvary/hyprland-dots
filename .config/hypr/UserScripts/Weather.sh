@@ -3,7 +3,8 @@
 # weather info from wttr. https://github.com/chubin/wttr.in
 # Remember to add city 
 
-city=
+# city="New Delhi"
+city="New Delhi"
 cachedir="$HOME/.cache/rbn"
 cachefile=${0##*/}-$1
 

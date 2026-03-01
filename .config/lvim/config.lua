@@ -47,8 +47,10 @@ vim.g.gruvbox_material_background = 'hard'
 
 
 -- set the pdf reader for vim latex
--- vim.g.vimtex_view_general_viewer = 'okular'
-vim.g.vimtex_view_general_viewer = 'zathura'
+vim.g.vimtex_view_general_viewer = 'okular'
+-- vim.g.vimtex_view_general_viewer = 'sioyek'
+-- vim.g.vimtex_view_general_viewer = 'zathura'
+-- vim.g.vimtex_view_method = "zathura"
 
 --- #### vimtex stuff
 --" This is necessary for VimTeX to load properly. The "indent" is optional.
@@ -68,7 +70,8 @@ lvim.plugins = {
   { "tanvirtin/monokai.nvim", lazy = false },
   { "aditya-azad/candle-grey", lazy = false },
   { "neanias/everforest-nvim", priority = 1000, lazy = false},
-  { "olivercederborg/poimandres.nvim", lazy = false }, { "elvessousa/sobrio", lazy = false },
+  { "olivercederborg/poimandres.nvim", lazy = false },
+  { "elvessousa/sobrio", lazy = false },
   { "projekt0n/github-nvim-theme", lazy = false },
   { "ramojus/mellifluous.nvim", lazy = false },
   { "nyoom-engineering/oxocarbon.nvim", lazy = false},
@@ -91,15 +94,51 @@ lvim.plugins = {
   {"ludvary/sainnhe_gruvbox_brighter", lazy=false},
     {"everviolet/nvim", lazy=false},
     {"ange-yaghi/onedark.vim", lazy=false},
+    
+  {
+    "cdmill/focus.nvim",
+    config = function()
+      require("focus").setup({
+        border = "none",
+        zindex = 40,
+        window = {
+          backdrop = 1.0,
+          width = 120,
+          height = 1,
+          options = {},
+        },
+        auto_zen = true,
+        maintain_zen = true,
+        maintain_narrow = false,
+        zen = {
+          opts = {
+            cmdheight = 0,
+            cursorline = false,
+            laststatus = 0,
+            number = false,
+            relativenumber = false,
+            foldcolumn = "0",
+            signcolumn = "no",
+            statuscolumn = " ",
+          },
+          diagnostics = false,
+        },
+        plugins = {},
+        on_open = function(_win) end,
+        on_close = function() end,
+      })
+
+      vim.keymap.set("n", "<leader>z", "<cmd>Zen<cr>", { desc = "Zen Mode" })
+    end,
+  },
+
   -- {"axvr/photon.vim", lazy = false},
   -- {"morhetz/gruvbox", lazy=false},
-    {
-    'goolord/alpha-nvim',
+    { 'goolord/alpha-nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function ()
         require'alpha'.setup(require'alpha.themes.theta'.config)
-    end
-}, 
+    end }, 
 }
 
 -- colorscheme at launch
@@ -107,7 +146,8 @@ lvim.plugins = {
 -- vim.cmd("color paper")
 -- lvim.colorscheme = "gruvbox-material"
 -- lvim.colorscheme = "sobrio"
- lvim.colorscheme = "retrobox"
+ -- lvim.colorscheme = "retrobox"
+ lvim.colorscheme = "phoenix"
 --lvim.colorscheme = "evergarden-winter"
 
 

@@ -202,26 +202,35 @@
 ;;   (define-key c++-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
 ;;   )
 
+;; (use-package! auctex-latexmk
+;;   :after latex
+;;   :config
+;;   (auctex-latexmk-setup))
+
 (use-package! auctex-latexmk
-  :after latex
+  :after tex
   :config
   (auctex-latexmk-setup))
 
-;; (after! tex
-;;   (setq TeX-view-program-selection '((output-pdf "Zathura"))
-;;         TeX-source-correlate-start-server t
-;;         TeX-save-query nil
-;;         TeX-show-compilation t)
 
 (after! tex
   (setq TeX-source-correlate-method 'synctex
         TeX-view-program-selection '((output-pdf "Zathura"))
         TeX-source-correlate-start-server t
         TeX-save-query nil
-        TeX-show-compilation t)
+        TeX-show-compilation t
+         TeX-command-default "LatexMk") 
 
   ;; Start Emacs server if not already started
   (server-start)
+
+(after! tex
+  (setq TeX-command-list
+        '(("LatexMk" "latexmk -pdf -synctex=1 %s"
+           TeX-run-TeX nil t
+           :help "Run LatexMk")))
+
+  (setq TeX-command-default "LatexMk"))
 
 
 
@@ -240,3 +249,23 @@
                              company-yasnippet
                              company-ispell
                              company-capf))))))
+
+
+
+(add-hook 'julia-mode-hook #'lsp!)   ;; <- IMPORTANT
+(setq lsp-julia-command "/home/ludvary/.cargo/bin/julia")
+(setq lsp-julia-default-environment "~/.julia/environments/v1.10")
+(setq lsp-log-io t)
+(setq lsp-julia-default-environment "~/.julia/environments/v1.10")
+
+;; (add-to-list 'treesit-language-source-alist
+;;              '(julia "https://github.com/tree-sitter/tree-sitter-julia"))
+
+;; (add-to-list 'major-mode-remap-alist
+;;              '(julia-mode . julia-ts-mode))
+
+;; (setq lsp-semantic-tokens-enable t)
+;; (add-hook 'julia-ts-mode-hook #'rainbow-delimiters-mode)
+;; (add-hook 'julia-ts-mode-hook #'highlight-numbers-mode)
+;; (after! darkroom
+;;   (require 'darkroom))

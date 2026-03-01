@@ -7,7 +7,32 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "extend_comment_on_newline": false,
+  "tasks": {
+    "enabled": true
+  },
+  "tab_size": 4,
+  "toolbar": {
+    "agent_review": false,
+    "selections_menu": false,
+    "quick_actions": false,
+    "breadcrumbs": true
+  },
+  "scrollbar": {
+    "axes": {
+      "vertical": false
+    },
+    "selected_text": false,
+    "cursors": true,
+    "git_diff": false
+  },
+  "autosave": "off",
+  "show_wrap_guides": false,
+  "current_line_highlight": "none",
   "project_panel": {
+    "indent_guides": {
+      "show": "never"
+    },
     "dock": "right"
   },
   "disable_ai": true,

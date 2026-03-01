@@ -42,8 +42,10 @@ alias rip="rip --graveyard $HOME/graveyard"
 
 alias Code="cd $HOME/hause/significant\ things/code/"
 
-alias minecraft="java -jar $HOME/Downloads/apps/SKlauncher-3.2.12.jar"
+# alias minecraft="java -jar $HOME/Downloads/apps/SKlauncher-3.2.12.jar"
+alias minecraft="java -jar $HOME/Downloads/apps/SKlauncher-3.2.18.jar"
 alias silksong="wine $HOME/.wine/drive_c/Program\ Files\ \(x86\)/DODI-Repacks/Hollow\ Knight\ Silksong/Hollow\ Knight\ Silksong.exe"
+alias hollow_knight="wine $HOME/.wine/drive_c/Program\ Files\ \(x86\)/DODI-Repacks/Hollow\ Knight/hollow_knight.exe"
 
 alias hib="systemctl hibernate"
 alias sus="systemctl suspend"
@@ -65,6 +67,8 @@ alias one_eight_seven="ssh -X krishna@172.16.23.187"
 alias one_eight_eight="ssh -X krishna@172.16.23.188"
 alias one_eight_nine="ssh -X krishna@172.16.23.189"
 
+alias amd_225="ssh -X krishna@172.16.21.225"
+
 alias adj_lab_i9_243="ssh -X krishna@192.168.32.243"
 
 alias storage_server="ssh -X krishna@172.16.23.180"
@@ -80,3 +84,23 @@ export PATH="$HOME/.config/emacs/bin/:$PATH"
 export PATH="$HOME/.cargo/bin/:$PATH"
 export PATH="$HOME/scripts/bin/:$PATH"
 export PATH=$HOME/.local/bin:$PATH
+
+
+
+# source /opt/intel/oneapi/setvars.sh > /dev/null 2>&1
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/ludvary/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/ludvary/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/ludvary/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/ludvary/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
