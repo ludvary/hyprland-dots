@@ -21,6 +21,8 @@ INCLUDE=(
     "wlogout/***"
     "zathura/***"
     "zed/***"
+    "fastfetch/***"
+    "matplotlib/***"
 )
 
 mkdir -p "$DEST"
@@ -33,6 +35,14 @@ done
 rsync -av --delete --include="*/" "${INCLUDES[@]}" --exclude="*" "$SRC/" "$DEST/"
 
 rsync -av "$HOME/.zshrc" "$DOTS/"
+
+rsync -av "$HOME/scripts" "$DOTS/"
+
+rsync -av "$HOME/.oh-my-zsh/themes/dieter.zsh-theme" "$DOTS/"
+
+rsync -av "$HOME/.vim" "$DOTS/"
+
+rsync -av "$HOME/.vimrc" "$DOTS/"
 
 
 # i hate writing explanatory comments, why are you reading this anyways??

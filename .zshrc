@@ -29,8 +29,7 @@ setopt appendhistory
 # # Set-up icons for files/directories in terminal using lsd
 # alias ls='lsd'
 # alias l='ls -l'
-# alias la='ls -a'
-# alias lla='ls -la'
+# alias la='ls -a' alias lla='ls -la'
 # alias lt='ls --tree'
 
 alias ls="eza --icons"
@@ -76,8 +75,7 @@ alias storage_server="ssh -X krishna@172.16.23.180"
 # to enable some vim goodness in terminal
 set -o vi
 
-fastfetch
-
+fastfetch --config $HOME/.config/fastfetch/13.jsonc
 
 # add paths
 export PATH="$HOME/.config/emacs/bin/:$PATH"
