@@ -34,15 +34,15 @@ done
 
 rsync -av --delete --include="*/" "${INCLUDES[@]}" --exclude="*" "$SRC/" "$DEST/"
 
-rsync -av "$HOME/.zshrc" "$DOTS/"
+rsync -av --delete "$HOME/.zshrc" "$DOTS/"
 
-rsync -av "$HOME/scripts" "$DOTS/"
+rsync -av --delete "$HOME/scripts" "$DOTS/"
 
-rsync -av "$HOME/.oh-my-zsh/themes/dieter.zsh-theme" "$DOTS/"
+rsync -av --delete "$HOME/.oh-my-zsh/themes/dieter.zsh-theme" "$DOTS/"
 
-rsync -av "$HOME/.vim" "$DOTS/"
+rsync -av --delete "$HOME/.vim" "$DOTS/"
 
-rsync -av "$HOME/.vimrc" "$DOTS/"
+rsync -av --delete "$HOME/.vimrc" "$DOTS/"
 
 
 # i hate writing explanatory comments, why are you reading this anyways??
