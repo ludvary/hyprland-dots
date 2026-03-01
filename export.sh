@@ -6,7 +6,6 @@ DOTS="$HOME/dots"
 SRC="$HOME/.config"
 DEST="$DOTS/.config"
 
-# Folders to sync (full recursive)
 INCLUDE=(
     "btop/***"
     "doom/***"
@@ -31,11 +30,7 @@ for item in "${INCLUDE[@]}"; do
   INCLUDES+=( "--include=$item" )
 done
 
-rsync -av --delete \
-    --include="*/" \
-    "${INCLUDES[@]}" \
-    --exclude="*" \
-    "$SRC/" "$DEST/"
+rsync -av --delete --include="*/" "${INCLUDES[@]}" --exclude="*" "$SRC/" "$DEST/"
 
 rsync -av "$HOME/.zshrc" "$DOTS/"
 
@@ -49,7 +44,7 @@ if git diff --cached --quiet; then
     echo "No changes to commit."
 else
     NOW=$(date '+%Y-%m-%d %H:%M:%S')
-    git commit -m "Dotfiles update: $NOW"
+    git commit -m "dots update: $NOW"
     git push
-    echo "Dotfiles synced, committed, and pushed."
+    echo "dots synced, committed, and pushed."
 fi
